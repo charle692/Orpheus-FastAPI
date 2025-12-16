@@ -45,14 +45,12 @@ services:
     user: ${UID}:${GID}
     volumes:
       - ./models:/app/models
-    env_file:
-      - stack.env
     working_dir: /app
     command: >
       sh -c '
-      if [ ! -f /app/models/${ORPHEUS_MODEL_NAME} ]; then
+      if [ ! -f /app/models/Orpheus-3b-FT-Q8_0.gguf ]; then
         echo "Downloading model file..."
-        wget -P /app/models https://huggingface.co/lex-au/${ORPHEUS_MODEL_NAME}/resolve/main/${ORPHEUS_MODEL_NAME}
+        wget -P /app/models https://huggingface.co/lex-au/Orpheus-3b-FT-Q8_0.gguf/resolve/main/Orpheus-3b-FT-Q8_0.gguf
       else
         echo "Model file already exists"
       fi'
