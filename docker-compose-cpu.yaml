@@ -45,6 +45,8 @@ services:
     user: ${UID}:${GID}
     volumes:
       - ./models:/app/models
+    env_file:
+      - stack.env
     working_dir: /app
     command: >
       sh -c '
