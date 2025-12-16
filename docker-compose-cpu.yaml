@@ -7,7 +7,7 @@ services:
     ports:
       - "5005:5005"
     env_file:
-      - .env
+      - stack.env
     environment:
       - ORPHEUS_API_URL=http://llama-cpp-server:5006/v1/completions
     restart: unless-stopped
@@ -22,7 +22,7 @@ services:
     volumes:
       - ./models:/models
     env_file:
-      - .env
+      - stack.env
     depends_on:
       model-init:
         condition: service_completed_successfully
