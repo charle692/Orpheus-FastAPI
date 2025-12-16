@@ -39,6 +39,7 @@ services:
       --no-mmap
       --no-slots
       --no-webui
+
   model-init:
     image: curlimages/curl:latest
     user: ${UID}:${GID}
